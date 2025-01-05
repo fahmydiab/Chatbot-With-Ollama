@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Help Desk Chatbot</title>
+</head>
+<body>
+<h1>Help Desk Chatbot</h1>
+<div th:if="${history}">
+    <h2>Conversation History</h2>
+    <ul>
+        <li th:each="entry : ${history}">
+            <strong>You:</strong> <span th:text="${entry.prompt}"></span><br>
+            <strong>Bot:</strong> <span th:text="${entry.response}"></span>
+        </li>
+    </ul>
+</div>
+<form action="/send" method="post">
+    <input type="text" name="userMessage" placeholder="Type your message here..." required />
+    <input type="hidden" name="historyId" value="123" /> <!-- Use a dynamic historyId in real applications -->
+    <button type="submit">Send</button>
+</form>
+</body>
+</html>

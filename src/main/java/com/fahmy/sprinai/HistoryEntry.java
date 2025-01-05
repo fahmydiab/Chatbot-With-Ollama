@@ -12,6 +12,10 @@ public class HistoryEntry {
         return prompt;
     }
 
+    public String getResponse() {
+        return response;
+    }
+
     public HistoryEntry(String prompt, String response) {
         this.prompt = prompt;
         this.response = response;
